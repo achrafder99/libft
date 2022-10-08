@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/08 15:08:22 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/08 16:52:27 by adardour         ###   ########.fr       */
+/*   Created: 2022/10/08 21:17:04 by adardour          #+#    #+#             */
+/*   Updated: 2022/10/08 21:41:04 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strchr(const char *s, int c){
-    while(*s != '\0'){
-        if(*s == c){
-            return (char *)s;
-        }
-        s++;
-    }
-    return NULL;
+void *calloc(size_t count, size_t size)
+{
+}
+
+int main()
+{
+    char *str = "achraf dardour";
+    printf("%s", ft_malloc(str));
+    return (0);
 }
