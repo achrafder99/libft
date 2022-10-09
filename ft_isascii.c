@@ -6,7 +6,7 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 11:33:01 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/08 21:45:09 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/09 02:19:00 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,5 @@ int ft_isascii(int c)
     {
         return (1);
     }
-    return (0);
-}
-
-int main()
-{
-    printf("%d", ft_isascii('a'));
     return (0);
 }

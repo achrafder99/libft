@@ -6,7 +6,7 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 21:47:05 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/09 01:21:58 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/09 10:34:34 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,13 @@ int ft_atoi(const char *str)
     result = 0;
     while (checkIfIsEscapeSequence(str[i]) == 1)
         i++;
-    if (str[i] == '-' || str[i] == '+')
+    while (str[i] == '-' || str[i] == '+')
     {
         if (str[i] == '-')
         {
             sign *= -1;
         }
+        i++;
     }
     while (ft_isdigit(str[i]) == 1)
     {
@@ -47,13 +48,5 @@ int checkIfIsEscapeSequence(char c)
     {
         return (1);
     }
-    return (0);
-}
-
-int main()
-{
-    char *str = "\t\v -12achraf";
-    printf("%d\n", ft_atoi(str));
-    printf("%d", atoi(str));
     return (0);
 }

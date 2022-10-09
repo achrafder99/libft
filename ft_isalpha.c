@@ -6,23 +6,20 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 10:18:31 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/08 10:42:26 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/09 02:20:06 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isalpha(int c){
-    if((c >= 65 && c <= 90) || (c >= 97 && c <= 122)){
+int ft_isalpha(int c)
+{
+    if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
+    {
         return 1;
     }
-    else{
+    else
+    {
         return 0;
     }
-}
-
-int main(){
-    char a = 'a';
-    printf("%d", ft_isalpha(a));
-    return 0;
 }

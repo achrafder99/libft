@@ -6,7 +6,7 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 16:49:35 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/08 19:10:33 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/09 12:12:52 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,30 +15,23 @@
 char *ft_strrchr(const char *s, int c)
 {
 
-    int i;
-    i = 0;
+    int length;
+    length = ft_strlen(s);
 
-    int indexOfOccurence;
-    indexOfOccurence = -1;
+    int IndexOfOccurence;
+    IndexOfOccurence = 0;
 
-    while (s[i] != '\0')
+    int Out;
+    Out = 1;
+
+    while (length-- && Out == 1)
     {
-        if (s[i] == c)
+        if (s[length] == c)
         {
-            indexOfOccurence = i;
+            IndexOfOccurence = length;
+            Out = 0;
+            return ((char *)s + IndexOfOccurence);
         }
-        i++;
     }
-    printf("%d\n", indexOfOccurence);
-    return (NULL);
-}
-
-int main()
-{
-
-    char *str = "a,c,h,der";
-    char occurence = ',';
-    char *ptr = ft_strrchr(str, occurence);
-    printf("%s", ptr);
-    return (0);
+    return NULL;
 }

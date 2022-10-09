@@ -6,7 +6,7 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 18:16:55 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/08 20:33:55 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/09 16:35:35 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,17 @@
 
 void *ft_memset(void *b, int c, size_t len)
 {
-    int i;
+    size_t i;
     i = 0;
-    while (len > 0)
+
+    unsigned char *bb = (unsigned char *)b;
+    if (b == NULL)
+        return NULL;
+    while (bb[i] != '\0' && len > i)
     {
-        *(unsigned char *)b = c;
+        bb[i] = (unsigned char)c;
         b++;
-        len--;
+        i++;
     }
-    return (b);
-}
-
-int main()
-{
-
-    char *str = "achraf dardour";
-    char c = 'a';
-    printf("%s", ft_memset(str, c, 4));
-    return 0;
+    return (bb);
 }

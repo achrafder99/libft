@@ -6,20 +6,17 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 10:40:22 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/08 10:45:50 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/09 02:19:05 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_toupper(int c){
-    if(c >= 97 && c <= 122){
+int ft_toupper(int c)
+{
+    if (c >= 97 && c <= 122)
+    {
         return (c - 32);
     }
     return c;
-}
-
-int main(){
-    printf("%c",ft_toupper('A'));
-    return 0;
 }
