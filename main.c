@@ -6,7 +6,7 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 10:27:03 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/09 16:34:34 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/09 17:46:02 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int main()
 {
+    char tt[] = "achraf";
 
     // printf("                      \n");
     // printf("FT_ATOI ============================\n");
@@ -24,9 +25,11 @@ int main()
     // printf("                      \n");
     // return 0;
 
-    char buffer[10];
-    for (int i = 0; i < 10 - 1; i++)
-        buffer[i] = 'a';
-    printf("%s", ft_memset(buffer, 'c', 5));
+    // printf("%s", ft_memset(buffer, 'c', 5));
+    // return (0);
+
+    ft_bzero(tt, 4);
+    printf("%s", tt);
+
     return (0);
 }
