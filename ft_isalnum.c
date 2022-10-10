@@ -6,17 +6,17 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 10:51:37 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/09 02:20:02 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/10 00:32:47 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isalnum(int c)
+int	ft_isalnum(int c)
 {
-    if (isdigit(c) || isalpha(c))
-    {
-        return (1);
-    }
-    return (0);
+	if (isdigit(c) || isalpha(c))
+	{
+		return (1);
+	}
+	return (0);
 }

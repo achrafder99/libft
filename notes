@@ -1,0 +1,12 @@
+1) Size of the destination buffer should be greater than the number of bytes you want to copy.
+2) The memory of source and destination buffer should not be overlap.
+3) memcpy does not check the terminating null character, so carefully using with strings.
+4) The behavior of memcpy can be undefined if you try to access the destination and source buffer beyond their length.
+5) memcpy does not check the validity of the destination buffer.
+6) memcpy does not check the validity of the source buffer.
+
+The first Case if sizef of bytes greater than size of dest That will return This Error; 
+// main.c:34:5: warning: 'memcpy' will always overflow; destination buffer has size 7, but size
+//       argument is 10 [-Wbuiltin-memcpy-chk-size]
+//     memcpy(dst, src, 10);
+//     ^

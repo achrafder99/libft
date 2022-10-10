@@ -6,7 +6,7 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 16:49:35 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/09 12:12:52 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/10 18:43:15 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,11 @@ char *ft_strrchr(const char *s, int c)
     int Out;
     Out = 1;
 
-    while (length-- && Out == 1)
+    if (c == 0)
+    {
+        return ((char *)s + length);
+    }
+    while (length--)
     {
         if (s[length] == c)
         {
@@ -33,5 +37,5 @@ char *ft_strrchr(const char *s, int c)
             return ((char *)s + IndexOfOccurence);
         }
     }
-    return NULL;
+    return (NULL);
 }

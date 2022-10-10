@@ -6,20 +6,20 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 10:49:34 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/09 01:20:41 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/10 00:31:36 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
-    if ((c >= 48 && c <= 57))
-    {
-        return (1);
-    }
-    else
-    {
-        return (0);
-    }
+	if ((c >= 48 && c <= 57))
+	{
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
 }

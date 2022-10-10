@@ -6,17 +6,17 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 11:33:01 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/09 02:19:00 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/10 00:35:51 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isascii(int c)
+int	ft_isascii(int c)
 {
-    if (c >= 0 && c <= 127)
-    {
-        return (1);
-    }
-    return (0);
+	if (c >= 0 && c <= 127)
+	{
+		return (1);
+	}
+	return (0);
 }
