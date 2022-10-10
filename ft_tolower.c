@@ -6,17 +6,18 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 10:46:04 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/09 02:19:09 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/10 23:39:39 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_lower(int c)
+int ft_tolower(int c)
 {
     if (c >= 65 && c <= 90)
     {
         return (c + 32);
     }
-    return c;
+    else
+        return (c);
 }

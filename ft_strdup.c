@@ -6,7 +6,7 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 21:26:43 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/08 21:36:58 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/10 23:02:20 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char *ft_strdup(const char *s1)
     char *ptr;
     ptr = (char *)malloc(sizeof(s1) * ft_strlen(s1));
 
-    int i;
+    size_t i;
     i = 0;
 
     if (ptr == NULL)

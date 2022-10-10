@@ -6,15 +6,15 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 11:52:53 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/10 00:34:13 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/10 23:09:05 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isprint(int c)
+int ft_isprint(int c)
 {
-	if (c >= 32 && c <= 127)
+	if (c >= 32 && c <= 126)
 	{
 		return (1);
 	}

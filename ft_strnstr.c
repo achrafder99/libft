@@ -6,38 +6,44 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 15:04:50 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/10 18:08:00 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/10 23:01:39 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_strnstr(const char *haystack, const char *needle, size_t len)
+char *ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-    int i;
+    char *tt;
+
+    size_t i;
     i = 0;
 
-    while (haystack[i] != '\0')
+    if (ft_strlen(needle) == 0)
+        return (char *)haystack;
+    if (len != 0)
     {
-        int j;
-        j = 0;
-
-        while (needle[j] != '\0')
+        while (haystack[i] != '\0' && i < len)
         {
-            if (needle[j] != haystack[i + j])
+            int j;
+            j = 0;
+
+            if (haystack[i] == needle[0])
             {
-                break;
+                while (needle[j] != '\0')
+                {
+                    if (haystack[i + j] != needle[j])
+                    {
+                        break;
+                    }
+                    j++;
+                }
+                tt = ((char *)haystack + i);
+                return tt;
             }
-            j++;
+            i++;
         }
-        i++;
+        return NULL;
     }
-
-    return (i);
-}
-
-int main()
-{
-    printf("%d", ft_strnstr("achraf dardour", "raf", 5));
-    return (0);
+    return (NULL);
 }

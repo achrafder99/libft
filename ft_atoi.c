@@ -6,27 +6,27 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 21:47:05 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/10 00:59:16 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/10 23:50:05 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	checkIfIsEscapeSequence(char c);
+int checkIfIsEscapeSequence(char c);
 
-int	ft_atoi(const char *str)
+int ft_atoi(const char *str)
 {
 	int i;
 	i = 0;
-	
+
 	int sign;
 	sign = 1;
-	
+
 	int result;
 	result = 0;
 	while (checkIfIsEscapeSequence(str[i]) == 1)
 		i++;
-	while (str[i] == '-' || str[i] == '+')
+	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
 		{
@@ -42,13 +42,9 @@ int	ft_atoi(const char *str)
 	return (result * sign);
 }
 
-int	checkIfIsEscapeSequence(char c):
+int checkIfIsEscapeSequence(char c)
 {
-	if (c == '\t' 
-			|| c == '\n' 
-			|| c == '\v'
-			|| c == '\r'
-			|| c == 32)
+	if (c == 32 || (c >= '\t' && c <= '\r'))
 	{
 		return (1);
 	}

@@ -6,7 +6,7 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 16:38:02 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/09 21:21:10 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/10 22:58:17 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void ft_bzero(void *s, size_t n)
 
     unsigned char *pp;
 
-    pp = *(unsigned char *)s;
+    pp = (unsigned char *)s;
     while (i < n)
     {
         pp[i] = 0;

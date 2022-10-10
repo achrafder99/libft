@@ -6,7 +6,7 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 15:08:22 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/10 01:03:44 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/10 23:17:04 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ char *ft_strchr(const char *s, int c)
         }
         s++;
     }
-    return NULL;
+    return (NULL);
 }
