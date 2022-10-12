@@ -6,7 +6,7 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 15:08:22 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/11 12:50:22 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/13 00:02:31 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,12 @@
 
 char *ft_strchr(const char *s, int c)
 {
-    if (c == '\0')
-        return "";
+    if(c == '\0')
+        return (char *)s + ft_strlen(s);
     while (*s != '\0')
     {
         if (*s == c)
-        {
             return (char *)s;
-        }
         s++;
     }
     return (NULL);

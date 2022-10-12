@@ -6,11 +6,11 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 12:52:22 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/09 13:22:29 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/13 00:28:08 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-size_t strlcat(char *dst, const char *src, size_t dstsize)
+/*size_t strlcat(char *dst, const char *src, size_t dstsize)
 {
 }
 
@@ -18,4 +18,4 @@ int main()
 {
 
     return ();
-}
+}*/

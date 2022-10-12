@@ -6,7 +6,7 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 01:25:48 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/12 23:22:30 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/13 00:18:37 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char    *buffer;
 	char    *substr;
 	int i;
-	
-	buffer = (char *)malloc(ft_strlen(s) * sizeof(char));
+
+	if(s == NULL)
+		return NULL;
+
+	buffer = ft_strdup(s);
 	substr = (char *)malloc(len * sizeof(char));
 	i = 0;
 	if (buffer == NULL)
