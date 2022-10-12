@@ -6,25 +6,24 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 16:38:02 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/10 22:58:17 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/12 15:50:37 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
-    size_t i;
-    i = 0;
+	size_t			i;
+	unsigned char	*pp;
+	int				j;
 
-    unsigned char *pp;
-
-    pp = (unsigned char *)s;
-    while (i < n)
-    {
-        pp[i] = 0;
-        i++;
-    }
-    int j;
-    j = 0;
+	i = 0;
+	pp = (unsigned char *)s;
+	while (i < n)
+	{
+		pp[i] = 0;
+		i++;
+	}
+	j = 0;
 }

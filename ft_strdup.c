@@ -6,7 +6,7 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 21:26:43 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/10 23:02:20 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/12 12:38:01 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,7 @@ char *ft_strdup(const char *s1)
     i = 0;
 
     if (ptr == NULL)
-    {
         return (NULL);
-    }
     else
     {
         while (i <= ft_strlen(s1))
