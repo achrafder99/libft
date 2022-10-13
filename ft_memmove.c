@@ -6,7 +6,7 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 11:18:35 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/12 23:32:12 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/13 14:20:28 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void *ft_memmove(void *dst, const void *src, size_t len)
 	char *src1;
 	src1 = (char *)src;
 
-	char tmp[len - 1];
+	char tmp[len];
 	
 	while (src1[i] != '\0' && i < len)
 	{

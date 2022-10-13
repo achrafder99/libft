@@ -6,7 +6,7 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 18:16:55 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/12 15:56:37 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/13 15:00:56 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ void	*ft_memset(void *b, int c, size_t len)
 	size_t i;
 	i = 0;
 
-	unsigned char *bb = (unsigned char *)b;
+	unsigned char *bb;
+	bb = (unsigned char *)b;
 	if (b == NULL)
 		return (NULL);
 	while (bb[i] != '\0' && len > i)

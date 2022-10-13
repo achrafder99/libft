@@ -6,7 +6,7 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 16:49:35 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/13 00:05:35 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/13 13:53:44 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char *ft_strrchr(const char *s, int c)
 
     if (c == '\0')
         return ((char *)s + length);
-    while (length > 0)
+    while (length >= 0)
     {
         if (s[length] == c)
             return ((char *)s + length);
