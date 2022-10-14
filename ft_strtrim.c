@@ -6,7 +6,7 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 15:58:03 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/13 21:31:33 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/14 13:35:32 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,64 +31,51 @@ char *ft_strtrim(char const *s1, char const *set){
 	int lastIndex;
 	int j;
 	int q;
-	char *ptr;
+	int kk;
+	char *ptr;	
+	char *substr;
 	int length;
 
 	i = 0;
 	index = 0;
 	lastIndex = 0;
+	kk = 0;
+	if(!*s1 && !*set) return NULL;
 	length = ft_strlen(s1);
 	q = 0;
 
-	ptr = (char*)malloc(sizeof(char) * ((lastIndex - index) + 2));
-	while(s1[i] != '\0'){
+	ptr = ft_strdup(s1);
+	if (ptr == NULL) return NULL;
+	while(ptr[i] != '\0'){
 		j = 0;
 		while (set[j] != '\0')
 		{
-			if(s1[i] == set[j]){
-				index = i;
+			if(ptr[i] == set[j]){
+				index = i + 1;
 				break;
 			}
 			j++;
 		}
-		if(ft_found(s1[index + 1],(char*)set) == 0)
+		if(ft_found(ptr[i],(char*)set) == 0)
 			break;
 		i++;
 	}
 	
-	while(length--){
+	while(--length){
 		j = 0;
 		while (set[j] != '\0')
 		{
-			if(s1[length] == set[j]){
+			if(ptr[length] == set[j]){
 				lastIndex = length;
 				break;
 			}
 			j++;
 		}
-		if(ft_found(s1[length],(char*)set) == 0)
-			break;
-		i++;
+		if(lastIndex == 0) lastIndex = length;
+		if (ft_found(ptr[length], (char *)set) == 0) break;
 	}
 
-	if(ptr == NULL) return NULL;
-	while(index < lastIndex - 1){
-		ptr[q] = s1[index + 1];
-		index++;
-		q++;
-	}
-	ptr[q] = '\0';
-	return (ptr);
+	substr = ft_substr(ptr,index, lastIndex + 2);
+	ft_bzero(substr + lastIndex,ft_strlen(substr + (lastIndex + 1)));
+	return (substr);
 }
-int	main()
-{
-	char	*s1;
-	char	*s2;
-
-	s1 = "lorem \n ipsum \t dolor \n sit \t amet"; // i
-	s2 = "\t \n"; // j
-	printf("%s", ft_strtrim(s1, s2));
-	return (0);
-}
-// achrafxx
-// xx
