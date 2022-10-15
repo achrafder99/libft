@@ -6,7 +6,7 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 15:58:03 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/14 13:35:32 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/15 23:41:14 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char *ft_strtrim(char const *s1, char const *set){
 	lastIndex = 0;
 	kk = 0;
 	if(!*s1 && !*set) return NULL;
-	length = ft_strlen(s1);
+	length = ft_strlen(s1) - 1;
 	q = 0;
 
 	ptr = ft_strdup(s1);
@@ -61,7 +61,7 @@ char *ft_strtrim(char const *s1, char const *set){
 		i++;
 	}
 	
-	while(--length){
+	while(length){
 		j = 0;
 		while (set[j] != '\0')
 		{
@@ -73,9 +73,10 @@ char *ft_strtrim(char const *s1, char const *set){
 		}
 		if(lastIndex == 0) lastIndex = length;
 		if (ft_found(ptr[length], (char *)set) == 0) break;
+		length--;
 	}
 
+	ptr[length + 1] = '\0';
 	substr = ft_substr(ptr,index, lastIndex + 2);
-	ft_bzero(substr + lastIndex,ft_strlen(substr + (lastIndex + 1)));
 	return (substr);
 }
