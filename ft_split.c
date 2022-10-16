@@ -6,7 +6,7 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 21:34:32 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/15 22:46:17 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/16 00:13:36 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,21 +37,20 @@ static int column(char const *s,char c,int index){
     }
     return columnCount;
 }
-static size_t gettingstrlen(char *s,char c){
+static size_t gettingstrlen(char *s,char c,int index){
 
-    size_t len;
-    int i;
-    
-    len = 0;
-    i = 0;
-    while (s[i] != '\0')
+    size_t length;
+    length = 0;
+    while (s[index] != '\0')
     {
-        while(s[len] != c)
-            if(s[len + 1] == c)break;
-        len++;
-        i++;
+        while(s[length] != c){
+            if(s[length + 1] == c)break;
+            length++;
+        }
+        if(s[length + 1] == c)break;
+        index++;
     }
-    return len;
+    return length;
 }
 char **ft_split(char const *s, char c){
     char **ptr;
@@ -70,15 +69,12 @@ char **ft_split(char const *s, char c){
         return NULL;
 
     while(k <= rowcount){
-        while((s[j] != '\0') && s[j] == c && s[j + 1] != c){
-                ptr[k] = malloc(sizeof(char) * column(s,c,j) + 1);
-                j++;
+        while(ft_strtrim(s,c)[j] != c){
+            ptr[k] = (char *)malloc(sizeof(char) * (gettingstrlen(ft_strtrim(s,c), c, j)) + 1); // achraf|dardour === strtrim
+            j++;
         }
         k++;
     }
-
-    printf("%d\n",rowcount);
-
     return ptr;
 }
 

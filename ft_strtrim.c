@@ -6,7 +6,7 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 15:58:03 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/15 23:41:14 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/16 01:56:04 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ static int ft_found(char c,char *set){
 		i++;
 	}
 	return 0;
+}
+static int begin(){
+	
 }
 
 char *ft_strtrim(char const *s1, char const *set){
@@ -50,7 +53,7 @@ char *ft_strtrim(char const *s1, char const *set){
 		j = 0;
 		while (set[j] != '\0')
 		{
-			if(ptr[i] == set[j]){
+			if(ptr[i] == set[j]){  //xxachxraf dardourxx set = xxz
 				index = i + 1;
 				break;
 			}
@@ -79,4 +82,8 @@ char *ft_strtrim(char const *s1, char const *set){
 	ptr[length + 1] = '\0';
 	substr = ft_substr(ptr,index, lastIndex + 2);
 	return (substr);
+}
+int main(){
+	printf("|%s", ft_strtrim("  \n  \t  lorem \n ipsum \t dolor \n sit \t amet  \t \n ", "\t \n"));
+	return 0;
 }
