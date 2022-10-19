@@ -1,45 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_lstadd_back.C                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/08 21:47:05 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/17 20:29:55 by adardour         ###   ########.fr       */
+/*   Created: 2022/10/18 16:07:28 by adardour          #+#    #+#             */
+/*   Updated: 2022/10/18 16:27:16 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	check(char c)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	if (c == 32 || (c >= '\t' && c <= '\r'))
-		return (1);
-	return (0);
-}
+	t_list *ptr;
 
-int	ft_atoi(const char *str)
-{
-	int i;
-	i = 0;
-
-	int sign;
-	sign = 1;
-
-	int result;
-	result = 0;
-	while (check(str[i]) == 1)
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	ptr = *lst;
+	while (ptr->next != NULL)
 	{
-		if (str[i] == '-') sign *= -1;
-		i++;
+		ptr = ptr->next;
 	}
-	while (ft_isdigit(str[i]))
-	{
-		result = (result * 10) + str[i] - 48;
-		i++;
-	}
-	return (result * sign);
+	ptr->next = new;
 }

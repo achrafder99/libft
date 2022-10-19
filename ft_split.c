@@ -6,101 +6,112 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 21:34:32 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/17 23:38:43 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/19 15:56:17 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static int	getrows(char const *s, char delimiter)
+{
+	char	*trim;
+	int		count;
+	int		stop;
 
-static int getRows(char const *s, char delimiter){
-    char *trim;
-    int count;
-    int OUT;
-
-    count = 0;
-    trim = ft_strtrim(s,&delimiter);
-    while (*trim != '\0')
-    {
-        if(*trim == delimiter)  OUT = 0;
-        else if(OUT == 0){
-            OUT = 1;
-            ++count;
-        }
-        ++trim;
-    }
-    return (count + 1);
-}
-static int getColumn(char *str,char delimiter,int index){
-    int length;
-    length = 0;
-
-    while (str[index] != '\0')
-    {
-        if(str[index] == delimiter)break;
-        index++;
-    }
-    return (index);
+	count = 0;
+	trim = ft_strtrim(s, &delimiter);
+	while (*trim != '\0')
+	{
+		if (*trim == delimiter)
+			stop = 0;
+		else if (stop == 0)
+		{
+			stop = 1;
+			++count;
+		}
+		++trim;
+	}
+	return (count + 1);
 }
 
-char **ft_split(char const *s, char c){
-    char **ptr;
-    char *trim;
-    int i;
-    rowsandcolumn rc;
+static int	getcolumn(char *str, char delimiter, int index)
+{
+	int	length;
 
-    i = 0;
-    rc.row = getRows(s, c);
-    rc.nextBlock = 0;
-    ptr = malloc(sizeof(char*) * (rc.row + 1));
-    trim = ft_strtrim(s,&c);
-    if (ptr == NULL) return NULL;
-    while(rc.row > 0){
-        while(trim[i] != '\0'){ // achraf||||dardour||||aaaa||aaa|||sss|||||sssss
-            if(trim[i] == c) break;
-            ptr[rc.nextBlock] = (char *)malloc(sizeof(char) * (getColumn(trim, c, i) + 1));
-            i += getColumn(trim, c, i) - 1;
-            i++; 
-        }
-        if(trim[i + 1] != c){
-             rc.nextBlock++;
-             rc.row--;
-            
-        }
-      ++i;
-      rc.nextBlock = rc.nextBlock;
-      rc.row = rc.row;
-    }
-    int j = 0;
-    rc.nextBlock = 0;
-    rc.row = 3;
-    while(rc.row > 0){
-        i = j;
-        j = 0;
-        while (trim[i] != '\0')
-        {
-            if (trim[i] == c)
-                break;
-            ptr[rc.nextBlock][j] = trim[i]; // achraf||||dardour|hiba
-            if (trim[i + 1] == c)
-                ptr[rc.nextBlock][j + 1] = '\0';
-            j++;
-        }
-
-        if(trim[i] == c && trim[i + 1] == c){
-            rc.nextBlock = rc.nextBlock;
-            rc.row = rc.row;
-            j++;
-        }
-        rc.nextBlock++;
-        rc.row--;
-        j += 1;
-    }
-    return (ptr);
+	length = 0;
+	while (str[index] != '\0')
+	{
+		if (str[index] == delimiter)
+			break ;
+		index++;
+		length++;
+	}
+	return (length);
 }
 
-int main(){
-    //achraf||||dardour||||aaaa||aaa|||sss|||||
-    char **res = ft_split("||||||achraf||||dardour||||aaaa||aaa|||sss|||||sssss",'|');
-    return 0;
+
+
+void	fill(char *trim, char **ptr, int row, char c)
+{
+	int	i;
+	int	j;
+	int	jj;
+
+	i = 0;
+	j = 0;
+	jj = 0;
+	while (row > j)
+	{
+		while (trim[i] != c && trim[i] != '\0')
+		{
+			ptr[j][jj] = trim[i];
+			if (ptr[j] == NULL)
+				return ((void)(NULL));
+			i++;
+			jj++;
+		}
+		i += 1;
+		if (trim[i] != c)
+		{
+			ptr[j][jj] = '\0';
+			jj = 0;
+			j++;
+		}
+	}
+}
+
+char	**ft_split(char const *s, char c)
+{
+	rowsandcolumn	rc;
+	int				i;
+	char			**ptr;
+	char			*trim;
+
+	if (!s)
+		return (NULL);
+	trim = ft_strtrim(s, &c);
+	rc.row = getrows(trim, c);
+	ptr = (char **)malloc(sizeof(char *) * (rc.row + 1));
+	i = 0;
+	if (ptr == NULL)
+		return (NULL);
+	while (rc.row > rc.j)
+	{
+		while (trim[i] != '\0')
+		{
+			if (trim[i] == c)
+				break ;
+			ptr[rc.j] = malloc(sizeof(char) * getcolumn(trim, c, i) + 1);
+			if (ptr[rc.j] == NULL)
+				return (NULL);
+			i += getcolumn(trim, c, i);
+		}
+		i += 1;
+		if (trim[i] != c)
+			rc.j++;
+		rc.j = rc.j;
+	}
+	fill(trim, ptr, rc.row, c);
+	ptr[rc.j] = NULL;
+	return (ptr);
 }

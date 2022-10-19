@@ -6,7 +6,7 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 15:58:03 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/16 01:56:04 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/16 02:18:10 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,33 +23,16 @@ static int ft_found(char c,char *set){
 	}
 	return 0;
 }
-static int begin(){
-	
-}
-
-char *ft_strtrim(char const *s1, char const *set){
-
+static int begin(char const *ptr, char const *set){
 	int i;
-	int index;
-	int lastIndex;
 	int j;
-	int q;
-	int kk;
-	char *ptr;	
-	char *substr;
-	int length;
+	int index;
 
 	i = 0;
+	j = 0;
 	index = 0;
-	lastIndex = 0;
-	kk = 0;
-	if(!*s1 && !*set) return NULL;
-	length = ft_strlen(s1) - 1;
-	q = 0;
-
-	ptr = ft_strdup(s1);
-	if (ptr == NULL) return NULL;
-	while(ptr[i] != '\0'){
+	while (ptr[i] != '\0')
+	{
 		j = 0;
 		while (set[j] != '\0')
 		{
@@ -63,6 +46,27 @@ char *ft_strtrim(char const *s1, char const *set){
 			break;
 		i++;
 	}
+	return (index);
+}
+
+
+
+char *ft_strtrim(char const *s1, char const *set){
+
+	int index;
+	int lastIndex;
+	int j;
+	char *ptr;	
+	char *substr;
+	int length;
+
+	lastIndex = 0;
+	if(!*s1 && !*set) return NULL;
+	length = ft_strlen(s1) - 1;
+
+	ptr = ft_strdup(s1);
+	index = begin(ptr,set);
+	if (ptr == NULL) return NULL;
 	
 	while(length){
 		j = 0;
@@ -82,8 +86,4 @@ char *ft_strtrim(char const *s1, char const *set){
 	ptr[length + 1] = '\0';
 	substr = ft_substr(ptr,index, lastIndex + 2);
 	return (substr);
-}
-int main(){
-	printf("|%s", ft_strtrim("  \n  \t  lorem \n ipsum \t dolor \n sit \t amet  \t \n ", "\t \n"));
-	return 0;
 }

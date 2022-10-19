@@ -6,7 +6,7 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 22:16:11 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/13 14:12:53 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/19 01:42:20 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 size_t ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-
     size_t i;
     i = 0;
 

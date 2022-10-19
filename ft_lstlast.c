@@ -1,45 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/08 21:47:05 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/17 20:29:55 by adardour         ###   ########.fr       */
+/*   Created: 2022/10/18 14:24:15 by adardour          #+#    #+#             */
+/*   Updated: 2022/10/18 14:41:57 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	check(char c)
+t_list	*ft_lstlast(t_list *lst)
 {
-	if (c == 32 || (c >= '\t' && c <= '\r'))
-		return (1);
-	return (0);
-}
+	t_list	*currentnode;
 
-int	ft_atoi(const char *str)
-{
-	int i;
-	i = 0;
-
-	int sign;
-	sign = 1;
-
-	int result;
-	result = 0;
-	while (check(str[i]) == 1)
-		i++;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-') sign *= -1;
-		i++;
-	}
-	while (ft_isdigit(str[i]))
-	{
-		result = (result * 10) + str[i] - 48;
-		i++;
-	}
-	return (result * sign);
+	currentnode = lst;
+	if (currentnode == NULL)
+		return (NULL);
+	while (currentnode->next != NULL)
+		currentnode = currentnode->next;
+	return (currentnode);
 }

@@ -6,7 +6,7 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 20:46:22 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/12 15:56:06 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/17 14:51:20 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,18 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	size_t i;
 	i = 0;
 
+	
+
 	char *dst1;
 	dst1 = (char *)dst;
 
 	char *src1;
 	src1 = (char *)src;
-
+	
+	if(dst1 == src1 || n == 0)return (dst1);
+	else if(dst1 == NULL && src1 == NULL){
+		return (NULL);
+	}
 	while (i < n)
 	{
 		dst1[i] = src1[i];

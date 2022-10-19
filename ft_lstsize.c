@@ -1,45 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/08 21:47:05 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/17 20:29:55 by adardour         ###   ########.fr       */
+/*   Created: 2022/10/18 10:48:52 by adardour          #+#    #+#             */
+/*   Updated: 2022/10/18 11:00:58 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	check(char c)
+int	ft_lstsize(t_list *lst)
 {
-	if (c == 32 || (c >= '\t' && c <= '\r'))
-		return (1);
-	return (0);
-}
+	int		i;
+	t_list	*currentnode;
 
-int	ft_atoi(const char *str)
-{
-	int i;
 	i = 0;
-
-	int sign;
-	sign = 1;
-
-	int result;
-	result = 0;
-	while (check(str[i]) == 1)
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	currentnode = lst;
+	while (currentnode != NULL)
 	{
-		if (str[i] == '-') sign *= -1;
-		i++;
+		++i;
+		currentnode = currentnode->next;
 	}
-	while (ft_isdigit(str[i]))
-	{
-		result = (result * 10) + str[i] - 48;
-		i++;
-	}
-	return (result * sign);
+	return (i);
 }

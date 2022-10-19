@@ -1,45 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/08 21:47:05 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/17 20:29:55 by adardour         ###   ########.fr       */
+/*   Created: 2022/10/16 22:43:46 by adardour          #+#    #+#             */
+/*   Updated: 2022/10/17 15:07:11 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	check(char c)
-{
-	if (c == 32 || (c >= '\t' && c <= '\r'))
-		return (1);
-	return (0);
-}
-
-int	ft_atoi(const char *str)
-{
-	int i;
-	i = 0;
-
-	int sign;
-	sign = 1;
-
-	int result;
-	result = 0;
-	while (check(str[i]) == 1)
-		i++;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-') sign *= -1;
-		i++;
-	}
-	while (ft_isdigit(str[i]))
-	{
-		result = (result * 10) + str[i] - 48;
-		i++;
-	}
-	return (result * sign);
+void ft_putstr_fd(char *s, int fd){
+    if(s == NULL){
+        return ((void)NULL);
+    }
+    while(*s != '\0'){
+        write(fd, s, 1);
+        s++;
+    }
 }
