@@ -6,7 +6,7 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 21:34:32 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/19 23:11:32 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/21 15:32:30 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,40 +80,47 @@ void	fill(char *trim, char **ptr, int row, char c)
 
 char	**ft_split(char const *s, char c)
 {
-	rowsandcolumn	rc;
-	int				i;
-	char			**ptr;
-	char			*trim;
+	size_t	words;
+	int		i;
+	int		j;
+	char	**ptr;
+	char	*trim;
 
-	if (!s)
+	if (s == NULL)
 		return (NULL);
+	words = getrows(s, c);
+	i = 0;
+	j = 0;
 	trim = ft_strtrim(s, &c);
-	rc.row = getrows(trim, c);
-	if (ft_strlen(trim) == 0)
-		rc.row = 0;
-	ptr = (char **)malloc(sizeof(char *) * (rc.row + 1));
+	ptr = (char **)malloc(sizeof(char *) * (words + 1));
 	if (ptr == NULL)
 		return (NULL);
-	i = 0;
-	while (rc.row > rc.j)
+	while (trim[j] != '\0')
 	{
-		while (trim[i] != '\0')
+		while (words > 0)
 		{
-			if (trim[i] == c)
+			if (trim[j] == c)
 				break ;
-			ptr[rc.j] = malloc(sizeof(char) * getcolumn(trim, c, i) + 1);
-			if (ptr[rc.j] == NULL)
+			ptr[i] = (char *)malloc(sizeof(char) * getcolumn(trim, c, j) + 1);
+			if (ptr[i] == NULL)
 			{
+				free(ptr);
 				return (NULL);
 			}
-			i += getcolumn(trim, c, i);
+			i++;
+			j += getcolumn(trim, c, j);
+			words--;
 		}
-		i += 1;
-		if (trim[i] != c)
-			rc.j++;
-		rc.j = rc.j;
+		j++;
 	}
-	fill(trim, ptr, rc.row, c);
-	ptr[rc.j] = NULL;
+	if (ft_strlen(ft_strtrim(s, &c)) == 0)
+	{
+		words = 0;
+		ptr[words] = NULL;
+		return (ptr);
+	}
+	words = getrows(s, c);
+	fill(trim, ptr, words, c);
+	ptr[words] = NULL;
 	return (ptr);
 }

@@ -6,7 +6,7 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 15:58:03 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/21 00:58:09 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/21 10:27:48 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,21 +65,28 @@ static int	getlastindex(char *str, char const *set)
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*str;
-	int		start;
-	int		end;
+	size_t	start;
+	size_t	end;
 	char	*substr;
-	int		size;
-	int		sizeAllocation;
+	size_t	size;
+	size_t	sizeAllocation;
 
-	if (s1 == 0 || set == 0)
+	if (s1 == NULL || set == NULL)
 		return (0);
 	str = strdup(s1);
+	if (str == NULL)
+		return (NULL);
 	start = getindex(str, set);
 	end = getlastindex(str, set);
-	if (str == 0)
-		return (0);
 	sizeAllocation = (ft_strlen(str) - end) + start;
 	size = ((ft_strlen(s1)) - sizeAllocation);
+	if (start - 1 == (ft_strlen(s1)) && end == 0)
+	{
+		size = 0;
+		substr = (char *)malloc((sizeof(char) * size) + 1);
+		substr[size] = '\0';
+		return (substr);
+	}
 	substr = (char *)malloc((sizeof(char) * size) + 1);
 	if (substr == NULL)
 		return (NULL);

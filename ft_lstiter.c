@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/18 14:24:15 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/21 19:02:20 by adardour         ###   ########.fr       */
+/*   Created: 2022/10/21 19:14:33 by adardour          #+#    #+#             */
+/*   Updated: 2022/10/21 20:41:47 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	t_list	*currentnode;
-
-	currentnode = lst;
-	if (currentnode == NULL)
-		return (NULL);
-	while (currentnode->next != NULL)
-		currentnode = currentnode->next;
-	return (currentnode);
+	while (lst != NULL)
+	{
+		f(lst->content);
+		lst = lst->next;
+	}
 }

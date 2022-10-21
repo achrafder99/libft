@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/18 14:24:15 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/21 19:02:20 by adardour         ###   ########.fr       */
+/*   Created: 2022/10/21 20:48:30 by adardour          #+#    #+#             */
+/*   Updated: 2022/10/21 21:31:45 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+// #include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
-{
-	t_list	*currentnode;
+// void	ft_lstdelone(t_list *lst, void (*del)(void *))
+// {
+// 	t_list	*node;
 
-	currentnode = lst;
-	if (currentnode == NULL)
-		return (NULL);
-	while (currentnode->next != NULL)
-		currentnode = currentnode->next;
-	return (currentnode);
-}
+// 	node = lst;
+// 	del(lst->content);
+// }
