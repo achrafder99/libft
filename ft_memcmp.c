@@ -6,7 +6,7 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 13:34:32 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/12 15:55:26 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/20 17:44:42 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	i = 0;
 	if (n == 0)
 		return (0);
-	while ((*str1 && *str2) && (*str1 == *str2) && i < n - 1)
+	while ((*str1 == *str2) && i < n - 1)
 	{
 		str1++;
 		str2++;

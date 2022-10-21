@@ -6,7 +6,7 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 01:25:48 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/13 00:18:37 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/20 17:14:55 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,27 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char    *buffer;
-	char    *substr;
-	int i;
+	char	*buffer;
+	char	*substr;
+	size_t	i;
 
-	if(s == NULL)
-		return NULL;
-
+	if (s == NULL)
+		return (NULL);
 	buffer = ft_strdup(s);
-	substr = (char *)malloc(len * sizeof(char));
+	substr = (char *)malloc(sizeof(char) * (len + 1));
 	i = 0;
-	if (buffer == NULL)
-		return NULL;
-	while(s[i] != '\0'){
-		buffer[i] = s[i];
+	if (substr == NULL)
+		return (NULL);
+	if (start >= ft_strlen(buffer))
+	{
+		return (ft_strdup(""));
+	}
+	while (s[i] != '\0' && i < len)
+	{
+		substr[i] = s[start];
 		i++;
-	};
-	buffer[i] = '\0';
-	ft_memcpy(substr,buffer + start,len);
+		start++;
+	}
+	substr[len] = '\0';
 	return (substr);
 }

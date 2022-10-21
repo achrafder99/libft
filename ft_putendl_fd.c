@@ -6,13 +6,17 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 22:52:47 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/16 22:54:24 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/20 15:26:35 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 void ft_putendl_fd(char *s, int fd){
+    if(s == NULL){{
+            return;
+        }
+    }
     while(*s != '\0'){
         write(fd, s, 1);
         s++;

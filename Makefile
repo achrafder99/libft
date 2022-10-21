@@ -6,7 +6,7 @@
 #    By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/13 13:49:20 by adardour          #+#    #+#              #
-#    Updated: 2022/10/19 14:45:29 by adardour         ###   ########.fr        #
+#    Updated: 2022/10/20 21:08:33 by adardour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRCS			=	ft_isalnum.c ft_isprint.c ft_memcmp.c  \
 					ft_strjoin.c ft_strtrim.c ft_putchar_fd.c \
 					ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_itoa.c \
 					ft_strmapi.c ft_lstnew.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
-					ft_split.c
+					ft_split.c ft_lstadd_front.c
 					
 OBJS			= $(SRCS:.c=.o)
 

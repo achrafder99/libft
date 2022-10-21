@@ -6,7 +6,7 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 21:34:32 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/19 15:56:17 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/19 23:11:32 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static int	getrows(char const *s, char delimiter)
 	int		count;
 	int		stop;
 
-	count = 0;
+	count = 1;
 	trim = ft_strtrim(s, &delimiter);
 	while (*trim != '\0')
 	{
@@ -27,11 +27,11 @@ static int	getrows(char const *s, char delimiter)
 		else if (stop == 0)
 		{
 			stop = 1;
-			++count;
+			count++;
 		}
 		++trim;
 	}
-	return (count + 1);
+	return (count);
 }
 
 static int	getcolumn(char *str, char delimiter, int index)
@@ -48,8 +48,6 @@ static int	getcolumn(char *str, char delimiter, int index)
 	}
 	return (length);
 }
-
-
 
 void	fill(char *trim, char **ptr, int row, char c)
 {
@@ -91,10 +89,12 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	trim = ft_strtrim(s, &c);
 	rc.row = getrows(trim, c);
+	if (ft_strlen(trim) == 0)
+		rc.row = 0;
 	ptr = (char **)malloc(sizeof(char *) * (rc.row + 1));
-	i = 0;
 	if (ptr == NULL)
 		return (NULL);
+	i = 0;
 	while (rc.row > rc.j)
 	{
 		while (trim[i] != '\0')
@@ -103,7 +103,9 @@ char	**ft_split(char const *s, char c)
 				break ;
 			ptr[rc.j] = malloc(sizeof(char) * getcolumn(trim, c, i) + 1);
 			if (ptr[rc.j] == NULL)
+			{
 				return (NULL);
+			}
 			i += getcolumn(trim, c, i);
 		}
 		i += 1;

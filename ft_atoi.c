@@ -6,7 +6,7 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 21:47:05 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/17 20:29:55 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/20 13:35:23 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,19 @@ static int	check(char c)
 
 int	ft_atoi(const char *str)
 {
-	int i;
+	int			i;
+	int			sign;
+	long int	result;
+
 	i = 0;
-
-	int sign;
 	sign = 1;
-
-	int result;
 	result = 0;
 	while (check(str[i]) == 1)
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
-		if (str[i] == '-') sign *= -1;
+		if (str[i] == '-')
+			sign *= -1;
 		i++;
 	}
 	while (ft_isdigit(str[i]))
