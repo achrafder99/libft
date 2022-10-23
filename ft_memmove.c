@@ -6,35 +6,53 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 11:18:35 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/21 19:00:44 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/22 21:10:04 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+static void	*_(unsigned char *dst1, unsigned char *src1, size_t end)
 {
 	size_t	i;
-	size_t	k;
-	char	*dst1;
-	char	*src1;
-	char	tmp[len + 1];
 
 	i = 0;
-	k = 0;
-	dst1 = (char *)dst;
-	src1 = (char *)src;
-	while (src1[i] != '\0' && i < len)
+	dst1 = dst1 + end;
+	src1 = src1 + end;
+	while (i <= end)
 	{
-		tmp[i] = src1[i];
+		*dst1 = *src1;
+		dst1--;
+		src1--;
 		i++;
 	}
-	i = 0;
-	while (tmp[k] != '\0' && k < len)
-	{
-		dst1[k] = tmp[k];
-		k++;
-	}
-	tmp[len] = '\0';
 	return (dst1);
+}
+
+void	*ft_memmove(void *dest, const void *src, size_t len)
+{
+	unsigned char	*dst1;
+	unsigned char	*src1;
+	size_t			i;
+	size_t			end;
+
+	dst1 = (unsigned char *)dest;
+	src1 = (unsigned char *)src;
+	end = len - 1;
+	i = 0;
+	if (dst1 == src1 || len == 0)
+		return (dst1);
+	if (src > dest)
+	{
+		while (i <= end)
+		{
+			*dst1 = *src1;
+			dst1++;
+			src1++;
+			i++;
+		}
+	}
+	else
+		_(dst1, src1, end);
+	return (dest);
 }

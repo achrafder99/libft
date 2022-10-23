@@ -6,7 +6,7 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 09:24:49 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/20 17:17:47 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/22 21:23:00 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,38 +27,13 @@ static int	countdigitis(int n)
 	return (count.countdigitis);
 }
 
-char	*ft_itoa(int n)
+static char	*itoa_(int number, char *str, char *buffer)
 {
-	char *str;
-	int numberofdigitis;
-	char *buffer;
-	int i;
-	int length;
-	long long int number;
+	int	i;
+	int	length;
 
-	number = (long int)n;
-
-	if (number == 0)
-	{
-		buffer = (char *)malloc(sizeof(char) * 2);
-		buffer[0] = '0';
-		buffer[1] = '\0';
-		return (buffer);
-	}
-	numberofdigitis = countdigitis(n);
 	i = 0;
-	str = (char *)malloc((numberofdigitis * sizeof(char)) + 1);
-	buffer = ft_calloc(numberofdigitis, sizeof(char));
-	if (str == NULL)
-	{
-		return (NULL);
-	}
-
-	else if (number < 0)
-	{
-		buffer[i] = '-';
-		number *= -1;
-	}
+	i = 0;
 	while (number > 0)
 	{
 		str[i] = number % 10 + 48;
@@ -67,7 +42,6 @@ char	*ft_itoa(int n)
 	}
 	str[i] = '\0';
 	length = ft_strlen(str);
-
 	i = 0;
 	if (buffer[i] == '-')
 		i += 1;
@@ -78,4 +52,32 @@ char	*ft_itoa(int n)
 		i++;
 	}
 	return (buffer);
+}
+
+char	*ft_itoa(int n)
+{
+	char	*str;
+	int		numberofdigitis;
+	char	*buffer;
+
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	if (n == 0)
+	{
+		buffer = (char *)malloc(sizeof(char) * 2);
+		buffer[0] = '0';
+		buffer[1] = '\0';
+		return (buffer);
+	}
+	numberofdigitis = countdigitis(n);
+	str = (char *)malloc((numberofdigitis * sizeof(char)) + 1);
+	buffer = ft_calloc(numberofdigitis, sizeof(char));
+	if (str == NULL)
+		return (NULL);
+	else if (n < 0)
+	{
+		buffer[0] = '-';
+		n *= -1;
+	}
+	return (itoa_(n, str, buffer));
 }

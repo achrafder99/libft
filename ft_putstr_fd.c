@@ -6,18 +6,21 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 22:43:46 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/17 15:07:11 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/22 21:28:00 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_putstr_fd(char *s, int fd){
-    if(s == NULL){
-        return ((void)NULL);
-    }
-    while(*s != '\0'){
-        write(fd, s, 1);
-        s++;
-    }
+void	ft_putstr_fd(char *s, int fd)
+{
+	if (s == NULL)
+	{
+		return ((void)NULL);
+	}
+	while (*s != '\0')
+	{
+		write(fd, s, 1);
+		s++;
+	}
 }

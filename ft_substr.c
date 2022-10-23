@@ -6,7 +6,7 @@
 /*   By: adardour <adardour@student.1337.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 01:25:48 by adardour          #+#    #+#             */
-/*   Updated: 2022/10/20 17:14:55 by adardour         ###   ########.fr       */
+/*   Updated: 2022/10/22 00:18:24 by adardour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (substr == NULL)
 		return (NULL);
 	if (start >= ft_strlen(buffer))
-	{
 		return (ft_strdup(""));
-	}
 	while (s[i] != '\0' && i < len)
 	{
 		substr[i] = s[start];
